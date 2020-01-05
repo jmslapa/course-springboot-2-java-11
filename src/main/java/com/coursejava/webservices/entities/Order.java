@@ -101,6 +101,13 @@ public class Order implements Serializable{
 	public Set<OrderItem> getItems(){
 		return items;
 	}
+	
+	public Double getTotal() {
+		double sum = 0;
+		for(OrderItem obj : items)
+			sum += obj.getSubTotal();
+		return sum;
+	}
 
 	@Override
 	public int hashCode() {
